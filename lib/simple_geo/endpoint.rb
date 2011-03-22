@@ -72,7 +72,7 @@ module SimpleGeo
           params = [] 
           params << "address=#{address}"
           options.each do |k,v|
-            params << "#{k}=#{v}"
+            params << "#{k}=#{URI.escape v}"
           end
           endpoint_url "places/address.json?#{params.join("&")}", '1.0'
         end
@@ -84,7 +84,7 @@ module SimpleGeo
         else
           params = []
           options.each do |k,v|
-            params << "#{k}=#{v}"
+            params << "#{k}=#{URI.escape v}"
           end
           endpoint_url "places/#{ip}.json?#{params.join("&")}", '1.0'
         end

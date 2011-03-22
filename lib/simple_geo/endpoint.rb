@@ -59,7 +59,6 @@ module SimpleGeo
         else
           params = []
           options.each do |k,v|
-            v = URI.escape v if v.is_a? String
             params << "#{k}=#{v}"
           end
           endpoint_url "places/#{lat},#{lon}.json?#{params.join("&")}", '1.0'
@@ -73,7 +72,6 @@ module SimpleGeo
           params = [] 
           params << "address=#{address}"
           options.each do |k,v|
-            v = URI.escape v if v.is_a? String
             params << "#{k}=#{v}"
           end
           endpoint_url "places/address.json?#{params.join("&")}", '1.0'
@@ -86,7 +84,6 @@ module SimpleGeo
         else
           params = []
           options.each do |k,v|
-            v = URI.escape v if v.is_a? String
             params << "#{k}=#{v}"
           end
           endpoint_url "places/#{ip}.json?#{params.join("&")}", '1.0'
